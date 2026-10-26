@@ -1,0 +1,44 @@
+/* Layout overrides. Page markup uses inline styles, so these win with !important. */
+
+/* ---------- Phones ---------- */
+@media (max-width: 760px) {
+  .stack-sm { grid-template-columns: 1fr !important; }
+  .dl-2col { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .grid-6 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  nav[aria-label="Case study sections"] { display: none !important; }
+  .gutter { padding-left: 20px !important; padding-right: 20px !important; }
+  h2.h2-sm { font-size: 28px !important; }
+  .fs-48 { font-size: 36px !important; }
+  .fs-34 { font-size: 26px !important; }
+  a[href^="mailto"] { font-size: 20px !important; overflow-wrap: anywhere; }
+
+  #themer { left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+  #th-pill { width: 46px; }
+  #th-rail { width: 46px; height: 196px; }
+  #th-thumb { left: 5px; }
+  #th-toggle { width: 46px; height: 46px; }
+
+  #rv-bar { padding: 12px 16px; }
+  #rv-scroll { padding: 16px 10px 32px; }
+  .rv-btn { padding: 0 16px; }
+}
+
+/* ---------- Case study side nav stays in view and follows the reader ---------- */
+@media (min-width: 761px) {
+  nav[aria-label="Case study sections"] { position: sticky; top: calc(28px + env(safe-area-inset-top, 0px)); align-self: flex-start; max-height: calc(100vh - 56px); overflow-y: auto; scrollbar-width: none; }
+  nav[aria-label="Case study sections"]::-webkit-scrollbar { display: none; }
+}
+
+/* ---------- Home: left rail navigation on wide screens ---------- */
+@media (min-width: 1100px) {
+  .route-home header > div { justify-content: flex-end !important; }
+  .route-home header > div > a[href="#top"] { position: fixed; left: 40px; top: calc(34px + env(safe-area-inset-top, 0px)); z-index: 15; font-size: 18px !important; transition: color .25s; }
+  .route-home nav[aria-label="Sections"] { position: fixed; left: 40px; top: calc(104px + env(safe-area-inset-top, 0px)); z-index: 15; flex-direction: column !important; flex-wrap: nowrap !important; gap: 2px !important; font-size: 17px !important; }
+  .route-home nav[aria-label="Sections"] a { color: var(--ink3) !important; display: inline-flex; align-items: center; min-height: 34px; transition: color .25s; }
+  .route-home nav[aria-label="Sections"] a:hover { color: var(--ink) !important; }
+  .route-home nav[aria-label="Sections"] a[aria-current="true"] { color: var(--ink) !important; }
+  .route-home header > div > a[data-onband],
+  .route-home nav[aria-label="Sections"] a[data-onband][aria-current="true"] { color: var(--bg) !important; }
+  .route-home nav[aria-label="Sections"] a[data-onband] { color: var(--band-muted) !important; }
+  .route-home .wrap { box-sizing: border-box !important; max-width: min(1240px, calc(100% - 280px)) !important; margin-left: max(240px, calc((100% - 1240px) / 2)) !important; margin-right: auto !important; }
+}
