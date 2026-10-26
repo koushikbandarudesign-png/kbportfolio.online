@@ -73,7 +73,7 @@ export default function Home() {
                 </div>
                 <div>
                   <dt className="label">Location</dt>
-                  <dd className="meta-value-sm">Hyderabad · IST · [Remote?]</dd>
+                  <dd className="meta-value-sm">Hyderabad · IST</dd>
                 </div>
                 <div>
                   <dt className="label">Current role</dt>
