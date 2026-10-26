@@ -29,10 +29,13 @@
   nav[aria-label="Case study sections"]::-webkit-scrollbar { display: none; }
 }
 
-/* ---------- Home: left rail navigation on wide screens ----------
-   The rail takes 240px, so it only appears once the work cards (560px screen + 420px text + gap)
-   still fit side by side next to it; narrower laptops keep the top nav. */
-@media (min-width: 1400px) {
+/* ---------- Home: left rail navigation on wide screens ---------- */
+@media (min-width: 1100px) {
+  /* The rail takes 240px; smaller flex bases keep each project's screen and text side by side next to it. */
+  .route-home #work article > * { flex-basis: 280px !important; }
+  .route-home #work article > a,
+  .route-home #work article > video { flex-basis: 400px !important; }
+
   .route-home header > div { justify-content: flex-end !important; }
   .route-home header > div > a[href="#top"] { position: fixed; left: 40px; top: calc(34px + env(safe-area-inset-top, 0px)); z-index: 15; font-size: 18px !important; transition: color .25s; }
   .route-home nav[aria-label="Sections"] { position: fixed; left: 40px; top: calc(104px + env(safe-area-inset-top, 0px)); z-index: 15; flex-direction: column !important; flex-wrap: nowrap !important; gap: 2px !important; font-size: 17px !important; }
