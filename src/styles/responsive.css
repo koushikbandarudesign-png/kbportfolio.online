@@ -31,10 +31,21 @@
 
 /* ---------- Home: left rail navigation on wide screens ---------- */
 @media (min-width: 1100px) {
-  /* The rail takes 240px; smaller flex bases keep each project's screen and text side by side next to it. */
+  /* The rail takes 240px, so the two- and three-column rows get smaller flex bases
+     to stay side by side next to it instead of wrapping onto a second row. */
+  .route-home #top > div > :first-child { flex-basis: 380px !important; }
+  .route-home #top dl { flex: 1 1 300px !important; max-width: 440px; }
+  .route-home #work > div > div:first-child > div { flex: 1 1 360px !important; }
+  .route-home #work > div > div:first-child > p { flex: 1 1 260px !important; }
   .route-home #work article > * { flex-basis: 280px !important; }
   .route-home #work article > a,
   .route-home #work article > video { flex-basis: 400px !important; }
+  .route-home #principles h3 { flex-basis: 260px !important; }
+  .route-home #principles h3 + p { flex-basis: 300px !important; }
+  .route-home #about > div > div:first-child { flex-basis: 260px !important; }
+  .route-home #about > div > div:last-child { flex-basis: 400px !important; }
+  .route-home #about ol li > span:first-child { flex-basis: 150px !important; }
+  .route-home #about ol li > span:last-child { flex-basis: 200px !important; }
 
   .route-home header > div { justify-content: flex-end !important; }
   .route-home header > div > a[href="#top"] { position: fixed; left: 40px; top: calc(34px + env(safe-area-inset-top, 0px)); z-index: 15; font-size: 18px !important; transition: color .25s; }
