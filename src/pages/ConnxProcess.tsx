@@ -1,6 +1,7 @@
 import { CaseCol, CaseGrid, Flow, Stat } from '../components/case/CaseGrid'
 import { OptionCard } from '../components/case/OptionCard'
 import { PhaseTimeline } from '../components/case/Timeline'
+import { WorkflowMap } from '../components/case/WorkflowMap'
 import { HashLink } from '../components/HashLink'
 import { Shot } from '../components/Shot'
 
@@ -229,9 +230,11 @@ export default function ConnxProcess() {
             <p style={{ margin: "32px 0 0", fontSize: "16px", lineHeight: "1.6", color: "var(--ink2)", maxWidth: "62ch" }}>
               The 75% figure set the first constraint early: CONNX integrates with the system of record. It doesn’t try to replace it.
             </p>
-            <div className="stack-sm" style={{ marginTop: "32px", display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "16px" }}>
-              <div style={{ aspectRatio: "4 / 3", borderRadius: "14px", background: "var(--placeholder)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "13px", color: "var(--ink2)", textAlign: "center", padding: "16px", boxSizing: "border-box" }}>[ Photo or sketch from the shadowing day ]</div>
-              <div style={{ aspectRatio: "4 / 3", borderRadius: "14px", background: "var(--placeholder)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "13px", color: "var(--ink2)", textAlign: "center", padding: "16px", boxSizing: "border-box" }}>[ Workflow map of the hiring chain ]</div>
+            <div className="cs-visuals">
+              <figure className="cs-photo">
+                <Shot name="shadowing" alt="The shadowing day at Leoforce: recruiters at their desks, one on a headset call at a laptop, another taking handwritten notes" loading="lazy" decoding="async" width="1280" height="960" />
+              </figure>
+              <WorkflowMap />
             </div>
           </section>
           {/* 05 MARKET */}

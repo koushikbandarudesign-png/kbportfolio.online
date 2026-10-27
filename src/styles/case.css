@@ -73,12 +73,37 @@
 .cs-callout.is-accent { border-left-color: var(--accent); }
 .cs-callout-text { margin: 0; font-size: 18px; line-height: 1.5; color: var(--ink); }
 
+/* Research visuals: shadowing photo beside the workflow map */
+.cs-visuals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 32px; align-items: stretch; }
+.cs-photo { margin: 0; min-height: 0; }
+.cs-photo img { display: block; width: 100%; height: 100%; min-height: 320px; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); cursor: zoom-in; }
+
+.cs-map { margin: 0; padding: 28px 26px 24px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; }
+.cs-map .cs-tag { margin-bottom: 18px; }
+.cs-map-steps { margin: 0; padding: 0; list-style: none; }
+.cs-map-step { position: relative; display: flex; align-items: baseline; gap: 14px; padding: 6px 0 6px 26px; font-size: 16px; line-height: 1.35; color: var(--ink2); }
+.cs-map-step::before { content: ""; position: absolute; left: 0; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: var(--line3); }
+.cs-map-step::after { content: ""; position: absolute; left: 4.5px; top: calc(50% + 5px); height: 100%; width: 1px; background: var(--line3); }
+.cs-map-scope .cs-map-step:last-child::after { display: none; }
+.cs-map-step.is-scope { color: var(--ink); }
+.cs-map-step.is-scope::before { background: var(--accent); }
+.cs-map-num { flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: var(--ink3); }
+.cs-map-step.is-scope .cs-map-num { color: var(--accent); }
+.cs-map-scope { position: relative; padding-right: 96px; margin-bottom: 18px; }
+.cs-map-bracket { position: absolute; top: 4px; bottom: 4px; right: 0; width: 84px; display: flex; align-items: center; justify-content: flex-end; padding-right: 22px; box-sizing: border-box; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; line-height: 1.5; text-transform: uppercase; text-align: right; color: var(--accent); }
+.cs-map-bracket::after { content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: 10px; border: 2px solid var(--accent); border-left: 0; border-radius: 0 6px 6px 0; }
+.cs-map-foot { margin-top: auto; padding-top: 18px; border-top: 1px dashed var(--line3); font-size: 14px; line-height: 1.5; color: var(--ink2); }
+.cs-map-out { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink3); white-space: nowrap; }
+
 @media (max-width: 1000px) {
   .cs-grid[data-cols="4"], .cs-timeline[data-cols="6"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cs-timeline[data-cols="6"] .cs-step:nth-child(2n)::after { display: none; }
 }
 @media (max-width: 760px) {
-  .cs-grid, .cs-options, .cs-callouts { grid-template-columns: 1fr !important; }
+  .cs-grid, .cs-options, .cs-callouts, .cs-visuals { grid-template-columns: 1fr !important; }
+  .cs-photo img { min-height: 0; height: auto; aspect-ratio: 4 / 3; }
+  .cs-map-scope { padding-right: 62px; }
+  .cs-map-bracket { width: 58px; padding-right: 16px; font-size: 10px; }
   .cs-timeline { grid-template-columns: 1fr !important; }
   .cs-step::after { display: none; }
   .cs-row { grid-template-columns: 1fr; }
