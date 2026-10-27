@@ -1,3 +1,5 @@
+import { CaseGrid, Flow, Stat } from '../components/case/CaseGrid'
+import { VersionTimeline } from '../components/case/Timeline'
 import { HashLink } from '../components/HashLink'
 import { PromoVideo } from '../components/PromoVideo'
 import { Shot } from '../components/Shot'
@@ -462,17 +464,15 @@ export default function TelmyProcess() {
             <p className="body-lead">
               Each concept was scored 0–5 on eight axes and plotted as a radar, so the comparison was structural rather than whoever argued hardest in the room.
             </p>
-            <div className="stack-sm" style={{ marginTop: "24px", display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "8px" }}>
-              <span style={{ padding: "12px", borderRadius: "10px", background: "var(--surface)", border: "1px solid var(--line)", fontSize: "14px", textAlign: "center" }}>User value</span>
-              <span style={{ padding: "12px", borderRadius: "10px", background: "var(--surface)", border: "1px solid var(--line)", fontSize: "14px", textAlign: "center" }}>Feasibility</span>
-              <span style={{ padding: "12px", borderRadius: "10px", background: "var(--surface)", border: "1px solid var(--line)", fontSize: "14px", textAlign: "center" }}>Innovation</span>
-              <span style={{ padding: "12px", borderRadius: "10px", background: "var(--surface)", border: "1px solid var(--line)", fontSize: "14px", textAlign: "center" }}>Usability</span>
-              <span style={{ padding: "12px", borderRadius: "10px", background: "var(--surface)", border: "1px solid var(--line)", fontSize: "14px", textAlign: "center" }}>Business viability</span>
-              <span style={{ padding: "12px", borderRadius: "10px", background: "var(--surface)", border: "1px solid var(--line)", fontSize: "14px", textAlign: "center" }}>Scalability</span>
-              <span style={{ padding: "12px", borderRadius: "10px", background: "var(--surface)", border: "1px solid var(--line)", fontSize: "14px", textAlign: "center" }}>Desirability</span>
-              <span style={{ padding: "12px", borderRadius: "10px", background: "var(--surface)", border: "1px solid var(--line)", fontSize: "14px", textAlign: "center" }}>Adaptivity</span>
+            <div className="cs-axes">
+              <span className="cs-axes-label">8 axes</span>
+              <ul style={{ margin: "0", padding: "0", listStyle: "none", display: "contents" }}>
+                {["User value", "Feasibility", "Innovation", "Usability", "Business viability", "Scalability", "Desirability", "Adaptivity"].map((axis) => (
+                  <li key={axis}>{axis}</li>
+                ))}
+              </ul>
             </div>
-            <figure style={{ margin: "16px 0 0" }}>
+            <figure style={{ margin: "28px 0 0" }}>
               <Shot name="dk-radar" alt="Evaluation matrix: four radar charts scoring Voicemail for Android, Configuration of Contacts, Voice Transcription and Scheduling Events from 0 to 5 on eight axes" loading="lazy" decoding="async" width="2095" height="1455" style={{ display: "block", width: "100%", height: "auto", borderRadius: "14px", border: "1px solid var(--line)", background: "#FFFFFF", cursor: "zoom-in" }} />
               <figcaption style={{ marginTop: "10px", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>
                 The evaluation matrix as the team plotted it: one radar per concept across the eight axes.
@@ -483,26 +483,13 @@ export default function TelmyProcess() {
           <section className="case-section" id="iterations">
             <p className="eyebrow">11 · Iterations</p>
             <h2 className="section-title h2-sm">Four products became one loop.</h2>
-            <ol className="stack-sm" style={{ margin: "28px 0 0", padding: "0", listStyle: "none", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px" }}>
-              <li className="panel">
-                <p style={{ margin: "0", fontSize: "32px", letterSpacing: "-0.02em", color: "var(--accent)" }}>v1</p>
-                <p style={{ margin: "10px 0 0", fontSize: "15px", lineHeight: "1.55", color: "var(--ink2)" }}>
-                  Four independent products. Each defensible alone; together, not an assistant.
-                </p>
-              </li>
-              <li className="panel">
-                <p style={{ margin: "0", fontSize: "32px", letterSpacing: "-0.02em", color: "var(--accent)" }}>v2</p>
-                <p style={{ margin: "10px 0 0", fontSize: "15px", lineHeight: "1.55", color: "var(--ink2)" }}>
-                  Scored. PriorityQ fell away as a standalone; its VIP logic moved into the call assistant, where configuration finally paid off.
-                </p>
-              </li>
-              <li style={{ padding: "24px", borderRadius: "14px", background: "var(--surface)", border: "2px solid var(--accent)" }}>
-                <p style={{ margin: "0", fontSize: "32px", letterSpacing: "-0.02em", color: "var(--accent)" }}>v3</p>
-                <p style={{ margin: "10px 0 0", fontSize: "15px", lineHeight: "1.55", color: "var(--ink2)" }}>
-                  One loop: answer, listen, draft, hand back to approve. Listen-in became the mechanism the product runs on.
-                </p>
-              </li>
-            </ol>
+            <VersionTimeline
+              steps={[
+                { version: "v1", text: "Four independent products. Each defensible alone; together, not an assistant." },
+                { version: "v2", text: "Scored. PriorityQ fell away as a standalone; its VIP logic moved into the call assistant, where configuration finally paid off." },
+                { version: "v3", text: "One loop: answer, listen, draft, hand back to approve. Listen-in became the mechanism the product runs on." },
+              ]}
+            />
           </section>
           {/* 12 TRADE-OFFS */}
           <section className="case-section" id="tradeoffs">
@@ -551,39 +538,11 @@ export default function TelmyProcess() {
           <section className="case-section" id="flows">
             <p className="eyebrow">13 · Task flows</p>
             <h2 className="section-title h2-sm">Three flows the prototype had to prove.</h2>
-            <div className="stack-sm" style={{ marginTop: "28px", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px" }}>
-              <div style={{ padding: "22px", borderRadius: "14px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontSize: "18px", lineHeight: "1.3" }}>Listen-in to event draft</p>
-                <ol style={{ margin: "14px 0 0", paddingLeft: "20px", fontSize: "14px", lineHeight: "1.7", color: "var(--ink2)" }}>
-                  <li>Allow Listen-in and recording</li>
-                  <li>Use the caller app</li>
-                  <li>Get a call receipt</li>
-                  <li>Open the receipt</li>
-                  <li>Verify or edit the draft</li>
-                  <li>Approve</li>
-                </ol>
-              </div>
-              <div style={{ padding: "22px", borderRadius: "14px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontSize: "18px", lineHeight: "1.3" }}>Nudging to mark events</p>
-                <ol style={{ margin: "14px 0 0", paddingLeft: "20px", fontSize: "14px", lineHeight: "1.7", color: "var(--ink2)" }}>
-                  <li>Meeting details shown</li>
-                  <li>Start meeting</li>
-                  <li>End meeting</li>
-                  <li>Tap the notification</li>
-                  <li>Mark complete</li>
-                </ol>
-              </div>
-              <div style={{ padding: "22px", borderRadius: "14px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontSize: "18px", lineHeight: "1.3" }}>The assistant takes a call</p>
-                <ol style={{ margin: "14px 0 0", paddingLeft: "20px", fontSize: "14px", lineHeight: "1.7", color: "var(--ink2)" }}>
-                  <li>Call received</li>
-                  <li>Assistant says she’s busy, takes a message</li>
-                  <li>Voice message saved</li>
-                  <li>User notified</li>
-                  <li>User reviews and replies</li>
-                </ol>
-              </div>
-            </div>
+            <CaseGrid cols={3}>
+              <Flow title="Listen-in to event draft" steps={["Allow Listen-in and recording", "Use the caller app", "Get a call receipt", "Open the receipt", "Verify or edit the draft", "Approve"]} />
+              <Flow title="Nudging to mark events" steps={["Meeting details shown", "Start meeting", "End meeting", "Tap the notification", "Mark complete"]} />
+              <Flow title="The assistant takes a call" steps={["Call received", "Assistant says she’s busy, takes a message", "Voice message saved", "User notified", "User reviews and replies"]} />
+            </CaseGrid>
           </section>
           {/* 14 SCREENS */}
           <section className="case-section" id="screens">
@@ -697,20 +656,11 @@ export default function TelmyProcess() {
             <h2 className="section-title h2-sm">
               A full prototype, and a team that decided instead of argued.
             </h2>
-            <div className="stack-sm" style={{ marginTop: "28px", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px" }}>
-              <div className="card">
-                <p className="stat">4 → 1</p>
-                <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>concepts resolved by a scored matrix, not preference</p>
-              </div>
-              <div className="card">
-                <p className="stat">6</p>
-                <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>designers led end to end, brief to prototype</p>
-              </div>
-              <div className="card">
-                <p className="stat">1</p>
-                <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>interactive prototype: onboarding to review</p>
-              </div>
-            </div>
+            <CaseGrid cols={3}>
+              <Stat value="4 → 1" note="concepts resolved by a scored matrix, not preference" />
+              <Stat value="6" note="designers led end to end, brief to prototype" />
+              <Stat value="1" note="interactive prototype: onboarding to review" />
+            </CaseGrid>
             <blockquote style={{ margin: "40px 0 0", padding: "36px", borderRadius: "16px", background: "var(--ink)", color: "var(--bg)", fontSize: "24px", lineHeight: "1.45", letterSpacing: "-0.01em" }}>
               The most useful thing I did as lead was hold the team to the evaluation matrix when we all had a favourite concept — including me.
             </blockquote>

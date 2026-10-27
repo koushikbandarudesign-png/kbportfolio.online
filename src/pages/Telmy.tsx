@@ -1,3 +1,5 @@
+import { CaseGrid, Stat } from '../components/case/CaseGrid'
+import { OptionCard } from '../components/case/OptionCard'
 import { HashLink } from '../components/HashLink'
 import { PromoVideo } from '../components/PromoVideo'
 import { Shot } from '../components/Shot'
@@ -157,20 +159,11 @@ export default function Telmy() {
                 </p>
               </>
             )}
-            <div className="stack-sm" style={{ marginTop: "32px", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px" }}>
-              <div style={{ padding: "28px 24px", borderRadius: "12px", background: "var(--ink)", color: "var(--bg)" }}>
-                <p className="stat-xl fs-48">48%</p>
-                <p style={{ margin: "10px 0 0", fontSize: "15px", lineHeight: "1.5", color: "var(--band-muted)" }}>felt overwhelmed managing schedules, calls and meetings</p>
-              </div>
-              <div style={{ padding: "28px 24px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p className="stat-xl fs-48">25%+</p>
-                <p style={{ margin: "10px 0 0", fontSize: "15px", lineHeight: "1.5", color: "var(--ink2)" }}>said official communication routinely goes undocumented</p>
-              </div>
-              <div style={{ padding: "28px 24px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p className="stat-xl fs-48">5</p>
-                <p style={{ margin: "10px 0 0", fontSize: "15px", lineHeight: "1.5", color: "var(--ink2)" }}>competitors — none of them anywhere near the call</p>
-              </div>
-            </div>
+            <CaseGrid cols={3}>
+              <Stat lead value="48%" note="felt overwhelmed managing schedules, calls and meetings" />
+              <Stat value="25%+" note="said official communication routinely goes undocumented" />
+              <Stat value="5" note="competitors — none of them anywhere near the call" />
+            </CaseGrid>
             {v.isDes && (
               <>
                 <p style={{ margin: "48px 0 16px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink3)" }}>Rekha’s day — where it dips</p>
@@ -219,34 +212,20 @@ export default function Telmy() {
             <p className="body-lead">
               Each concept was scored 0–5 on user value, feasibility, innovation, usability, viability, scalability, desirability and adaptivity — so the comparison was structural, not whoever argued hardest.
             </p>
-            <div className="stack-sm" style={{ marginTop: "32px", display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "12px" }}>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--rejected)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p className="tag-strong">Concept A · Rejected</p>
-                <p style={{ margin: "0", fontSize: "22px", lineHeight: "1.25", color: "var(--ink2)", textDecoration: "line-through" }}>Voicemails for Android</p>
-                <p className="body-sm">
-                  Strong on value and usability, weakest on innovation — the category already exists.
-                </p>
-              </div>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--rejected)", border: "1px dashed var(--line3)", display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p className="tag-strong">Concept B · Folded in</p>
-                <p style={{ margin: "0", fontSize: "22px", lineHeight: "1.25", color: "var(--ink2)" }}>PriorityQ — VIP contacts</p>
-                <p className="body-sm">
-                  Most adaptive, least usable: configuration before any payoff. Cut as a product; its VIP logic moved into the call assistant.
-                </p>
-              </div>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--surface)", border: "2px solid var(--accent)", display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p className="tag-accent">Concept C · Chosen</p>
-                <p style={{ margin: "0", fontSize: "22px", lineHeight: "1.25", color: "var(--ink)" }}>Listen-in — transcribe and draft</p>
-                <p className="body-sm">
-                  The one concept that answered the undocumented-call finding head-on, and carried desirability and feasibility together.
-                </p>
-              </div>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--surface)", border: "2px solid var(--accent)", display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p className="tag-accent">Concept D · Chosen as its partner</p>
-                <p style={{ margin: "0", fontSize: "22px", lineHeight: "1.25", color: "var(--ink)" }}>Scheduling with approval</p>
-                <p className="body-sm">A draft is worthless without somewhere clean to approve it.</p>
-              </div>
-            </div>
+            <CaseGrid cols={2} className="cs-options">
+              <OptionCard label="Concept A" status="rejected" title="Voicemails for Android">
+                Strong on value and usability, weakest on innovation — the category already exists.
+              </OptionCard>
+              <OptionCard label="Concept B" status="folded" title="PriorityQ — VIP contacts">
+                Most adaptive, least usable: configuration before any payoff. Cut as a product; its VIP logic moved into the call assistant.
+              </OptionCard>
+              <OptionCard label="Concept C" status="chosen" title="Listen-in — transcribe and draft">
+                The one concept that answered the undocumented-call finding head-on, and carried desirability and feasibility together.
+              </OptionCard>
+              <OptionCard label="Concept D" status="chosen" statusText="Chosen as its partner" title="Scheduling with approval">
+                A draft is worthless without somewhere clean to approve it.
+              </OptionCard>
+            </CaseGrid>
             {v.isDes && (
               <>
                 <ol style={{ margin: "40px 0 0", padding: "0", listStyle: "none", borderTop: "1px solid var(--line)" }}>

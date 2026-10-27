@@ -1,3 +1,6 @@
+import { CaseCol, CaseGrid, Flow, Stat } from '../components/case/CaseGrid'
+import { OptionCard } from '../components/case/OptionCard'
+import { PhaseTimeline } from '../components/case/Timeline'
 import { HashLink } from '../components/HashLink'
 import { Shot } from '../components/Shot'
 
@@ -124,24 +127,11 @@ export default function ConnxProcess() {
             <p style={{ margin: "16px 0 0", fontSize: "18px", lineHeight: "1.65", color: "var(--ink2)", maxWidth: "62ch" }}>
               CONNX came out of that placement. Shadowing recruiters surfaced workflow gaps no screen-level fix would close, so I proposed a full revamp. The orientation is what made the proposal credible when I put it forward.
             </p>
-            <div className="stack-sm" style={{ marginTop: "28px", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px" }}>
-              <div className="card-sm">
-                <p style={{ margin: "0", fontSize: "17px" }}>Research</p>
-                <p style={{ margin: "8px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>
-                  Shadowing, secondary research, competitive and workflow analysis
-                </p>
-              </div>
-              <div className="card-sm">
-                <p style={{ margin: "0", fontSize: "17px" }}>Strategy</p>
-                <p style={{ margin: "8px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>Problem framing, the platform direction, scope for v1</p>
-              </div>
-              <div className="card-sm">
-                <p style={{ margin: "0", fontSize: "17px" }}>Design</p>
-                <p style={{ margin: "8px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>
-                  Flows, UI and the interactive prototype of the recruiter core
-                </p>
-              </div>
-            </div>
+            <CaseGrid cols={3}>
+              <CaseCol title="Research" text="Shadowing, secondary research, competitive and workflow analysis" />
+              <CaseCol title="Strategy" text="Problem framing, the platform direction, scope for v1" />
+              <CaseCol title="Design" text="Flows, UI and the interactive prototype of the recruiter core" />
+            </CaseGrid>
           </section>
           {/* 02 CONTEXT */}
           <section className="case-section" id="context">
@@ -152,27 +142,13 @@ export default function ConnxProcess() {
             <p className="body-lead">
               Leoforce is an outcome-based, AI-powered recruiting platform that helps staffing firms, employers and government agencies find interview-ready candidates. Every feature ties back to a measurable hiring result. Connect was built without end-to-end workflow thinking, and four gaps followed from that.
             </p>
-            <div className="stack-sm" style={{ marginTop: "32px", display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "12px" }}>
-              <div style={{ padding: "22px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontSize: "20px" }}>No context</p>
-                <p className="body-sm-gap">No candidate information at the point of a call.</p>
-              </div>
-              <div style={{ padding: "22px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontSize: "20px" }}>No consent</p>
-                <p className="body-sm-gap">No way to capture or manage it.</p>
-              </div>
-              <div style={{ padding: "22px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontSize: "20px" }}>No continuity</p>
-                <p className="body-sm-gap">
-                  Outcomes logged later, from memory, with no on-the-spot disposition.
-                </p>
-              </div>
-              <div style={{ padding: "22px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontSize: "20px" }}>No clarity</p>
-                <p className="body-sm-gap">It opened straight into chat, not a prioritised view.</p>
-              </div>
-            </div>
-            <p style={{ margin: "24px 0 0", fontSize: "18px", lineHeight: "1.55", maxWidth: "62ch" }}>
+            <CaseGrid cols={2}>
+              <CaseCol title="No context" text="No candidate information at the point of a call." />
+              <CaseCol title="No consent" text="No way to capture or manage it." />
+              <CaseCol title="No continuity" text="Outcomes logged later, from memory, with no on-the-spot disposition." />
+              <CaseCol title="No clarity" text="It opened straight into chat, not a prioritised view." />
+            </CaseGrid>
+            <p style={{ margin: "40px 0 0", fontSize: "18px", lineHeight: "1.55", maxWidth: "62ch" }}>
               These weren’t bugs in Connect. They were symptoms of one missing thing: a communication layer that understands the whole recruiter workflow.
             </p>
           </section>
@@ -180,44 +156,28 @@ export default function ConnxProcess() {
           <section className="case-section" id="process">
             <p className="eyebrow">03 · Process</p>
             <h2 className="section-title h2-sm">Six months, one method applied every time.</h2>
-            <ol className="grid-6" style={{ margin: "32px 0 0", padding: "0", listStyle: "none", display: "grid", gridTemplateColumns: "repeat(6, minmax(0, 1fr))", gap: "8px" }}>
-              <li style={{ padding: "16px 14px", borderRadius: "12px", background: "var(--ink)", color: "var(--bg)" }}>
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--band-muted2)" }}>Weeks 1–4</p>
-                <p style={{ margin: "8px 0 0", fontSize: "15px", lineHeight: "1.35" }}>Orientation</p>
-              </li>
-              <li style={{ padding: "16px 14px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--ink3)" }}>Phase 2</p>
-                <p style={{ margin: "8px 0 0", fontSize: "15px", lineHeight: "1.35" }}>Connect features</p>
-              </li>
-              <li style={{ padding: "16px 14px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--ink3)" }}>Phase 3</p>
-                <p style={{ margin: "8px 0 0", fontSize: "15px", lineHeight: "1.35" }}>Shadowing and research</p>
-              </li>
-              <li style={{ padding: "16px 14px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--ink3)" }}>Phase 4</p>
-                <p style={{ margin: "8px 0 0", fontSize: "15px", lineHeight: "1.35" }}>Synthesis and reframing</p>
-              </li>
-              <li style={{ padding: "16px 14px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--ink3)" }}>Phase 5</p>
-                <p style={{ margin: "8px 0 0", fontSize: "15px", lineHeight: "1.35" }}>Direction and decision</p>
-              </li>
-              <li style={{ padding: "16px 14px", borderRadius: "12px", background: "var(--surface)", border: "2px solid var(--accent)" }}>
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--accent)" }}>Phase 6</p>
-                <p style={{ margin: "8px 0 0", fontSize: "15px", lineHeight: "1.35" }}>Design and prototype</p>
-              </li>
-            </ol>
-            <p style={{ margin: "40px 0 14px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink3)" }}>The decision method, for every feature</p>
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px" }}>
-              <span style={{ padding: "10px 16px", borderRadius: "999px", background: "var(--surface)", border: "1px solid var(--line2)", fontSize: "15px" }}>Insight</span>
-              <span aria-hidden="true" style={{ color: "var(--ink3)" }}>→</span>
-              <span style={{ padding: "10px 16px", borderRadius: "999px", background: "var(--surface)", border: "1px solid var(--line2)", fontSize: "15px" }}>Problem + how might we</span>
-              <span aria-hidden="true" style={{ color: "var(--ink3)" }}>→</span>
-              <span style={{ padding: "10px 16px", borderRadius: "999px", background: "var(--surface)", border: "1px solid var(--line2)", fontSize: "15px" }}>Brainstorm</span>
-              <span aria-hidden="true" style={{ color: "var(--ink3)" }}>→</span>
-              <span style={{ padding: "10px 16px", borderRadius: "999px", background: "var(--surface)", border: "1px solid var(--line2)", fontSize: "15px" }}>Select</span>
-              <span aria-hidden="true" style={{ color: "var(--ink3)" }}>→</span>
-              <span style={{ padding: "10px 16px", borderRadius: "999px", background: "var(--ink)", color: "var(--on-ink)", fontSize: "15px" }}>Solution</span>
-            </div>
+            <PhaseTimeline
+              steps={[
+                { label: "Weeks 1–4", title: "Orientation" },
+                { label: "Phase 2", title: "Connect features" },
+                { label: "Phase 3", title: "Shadowing and research" },
+                { label: "Phase 4", title: "Synthesis and reframing" },
+                { label: "Phase 5", title: "Direction and decision" },
+                { label: "Phase 6", title: "Design and prototype" },
+              ]}
+            />
+            <p style={{ margin: "56px 0 16px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink3)" }}>The decision method, for every feature</p>
+            <p className="cs-chain">
+              <span>Insight</span>
+              <span className="cs-chain-arrow" aria-hidden="true">→</span>
+              <span>Problem + how might we</span>
+              <span className="cs-chain-arrow" aria-hidden="true">→</span>
+              <span>Brainstorm</span>
+              <span className="cs-chain-arrow" aria-hidden="true">→</span>
+              <span>Select</span>
+              <span className="cs-chain-arrow" aria-hidden="true">→</span>
+              <span className="cs-chain-end">Solution</span>
+            </p>
             <p style={{ margin: "16px 0 0", fontSize: "16px", lineHeight: "1.6", color: "var(--ink2)", maxWidth: "62ch" }}>
               The rigour isn’t in any single decision — it’s the same chain applied every time.
             </p>
@@ -258,37 +218,15 @@ export default function ConnxProcess() {
               </li>
             </ol>
             <p style={{ margin: "40px 0 14px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink3)" }}>What it found</p>
-            <div className="stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px" }}>
-              <div style={{ padding: "24px", borderRadius: "12px", background: "var(--ink)", color: "var(--bg)" }}>
-                <p className="stat-lg">11 of 15</p>
-                <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--band-muted)" }}>calls went to voicemail in a typical session</p>
-              </div>
-              <div className="card">
-                <p className="stat-lg">6–7</p>
-                <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>
-                  tools in one session, against an industry average of 4–5 a day
-                </p>
-              </div>
-              <div className="card">
-                <p className="stat-lg">40%</p>
-                <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>of a recruiter’s day goes to admin, not candidates</p>
-              </div>
-              <div className="card">
-                <p className="stat-lg">75%</p>
-                <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>of large organisations run an ATS as their hiring backbone</p>
-              </div>
-              <div className="card">
-                <p className="stat-lg">98 vs 20</p>
-                <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>
-                  SMS open rate against email — phone-adjacent channels dominate
-                </p>
-              </div>
-              <div className="card">
-                <p className="stat-lg">0</p>
-                <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>records of consent — verbal, with no time, channel or scope</p>
-              </div>
-            </div>
-            <p style={{ margin: "20px 0 0", fontSize: "16px", lineHeight: "1.6", color: "var(--ink2)", maxWidth: "62ch" }}>
+            <CaseGrid cols={3} style={{ marginTop: "0" }}>
+              <Stat lead value="11 of 15" note="calls went to voicemail in a typical session" />
+              <Stat value="6–7" note="tools in one session, against an industry average of 4–5 a day" />
+              <Stat value="40%" note="of a recruiter’s day goes to admin, not candidates" />
+              <Stat value="75%" note="of large organisations run an ATS as their hiring backbone" />
+              <Stat value="98 vs 20" note="SMS open rate against email — phone-adjacent channels dominate" />
+              <Stat value="0" note="records of consent — verbal, with no time, channel or scope" />
+            </CaseGrid>
+            <p style={{ margin: "32px 0 0", fontSize: "16px", lineHeight: "1.6", color: "var(--ink2)", maxWidth: "62ch" }}>
               The 75% figure set the first constraint early: CONNX integrates with the system of record. It doesn’t try to replace it.
             </p>
             <div className="stack-sm" style={{ marginTop: "32px", display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "16px" }}>
@@ -350,57 +288,49 @@ export default function ConnxProcess() {
             <p className="body-lead">
               The shadowing observations clustered into four themes. Each names a gap, and every module further down traces back to one of them.
             </p>
-            <div className="stack-sm" style={{ marginTop: "28px", display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "12px" }}>
-              <div className="panel">
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--accent)" }}>GAP 01</p>
-                <p style={{ margin: "8px 0 0", fontSize: "21px" }}>The Context Gap</p>
-                <ul style={{ margin: "12px 0 0", paddingLeft: "18px", fontSize: "15px", lineHeight: "1.6", color: "var(--ink2)" }}>
+            <CaseGrid cols={2}>
+              <CaseCol tag="GAP 01" accentTag title="The Context Gap">
+                <ul className="cs-col-list">
                   <li>No candidate information at the point of a call</li>
                   <li>The profile lives in the ATS; the call lives somewhere else</li>
                 </ul>
-              </div>
-              <div className="panel">
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--accent)" }}>GAP 02</p>
-                <p style={{ margin: "8px 0 0", fontSize: "21px" }}>The Compliance Gap</p>
-                <ul style={{ margin: "12px 0 0", paddingLeft: "18px", fontSize: "15px", lineHeight: "1.6", color: "var(--ink2)" }}>
+              </CaseCol>
+              <CaseCol tag="GAP 02" accentTag title="The Compliance Gap">
+                <ul className="cs-col-list">
                   <li>Consent is verbal and undocumented</li>
                   <li>No record of when, by what channel, or for what scope</li>
                 </ul>
-              </div>
-              <div className="panel">
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--accent)" }}>GAP 03</p>
-                <p style={{ margin: "8px 0 0", fontSize: "21px" }}>The Visibility Gap</p>
-                <ul style={{ margin: "12px 0 0", paddingLeft: "18px", fontSize: "15px", lineHeight: "1.6", color: "var(--ink2)" }}>
+              </CaseCol>
+              <CaseCol tag="GAP 03" accentTag title="The Visibility Gap">
+                <ul className="cs-col-list">
                   <li>Hiring managers interrupt recruiters constantly for updates</li>
                   <li>No self-service way to see where a role stands</li>
                 </ul>
-              </div>
-              <div className="panel">
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--accent)" }}>GAP 04</p>
-                <p style={{ margin: "8px 0 0", fontSize: "21px" }}>The Analytics Gap</p>
-                <ul style={{ margin: "12px 0 0", paddingLeft: "18px", fontSize: "15px", lineHeight: "1.6", color: "var(--ink2)" }}>
+              </CaseCol>
+              <CaseCol tag="GAP 04" accentTag title="The Analytics Gap">
+                <ul className="cs-col-list">
                   <li>Performance tracked in a manual spreadsheet</li>
                   <li>Low-trust numbers, assembled by hand</li>
                 </ul>
-              </div>
-            </div>
-            <p style={{ margin: "48px 0 14px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink3)" }}>Three insights</p>
-            <div style={{ display: "flex", flexDirection: "column", borderTop: "1px solid var(--line)" }}>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 32px", padding: "24px 0", borderBottom: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", flex: "1 1 260px", fontSize: "20px", lineHeight: "1.3" }}>The problem was never one tool. It was the switching.</p>
-                <p style={{ margin: "0", flex: "1 1 380px", fontSize: "15px", lineHeight: "1.6", color: "var(--ink2)" }}>
+              </CaseCol>
+            </CaseGrid>
+            <p style={{ margin: "56px 0 16px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink3)" }}>Three insights</p>
+            <div className="cs-rows">
+              <div className="cs-row">
+                <p className="cs-row-lead">The problem was never one tool. It was the switching.</p>
+                <p className="cs-row-text">
                   Every context switch costs attention, and every lost moment is a candidate detail missed. Fixing any one tool wouldn’t touch the real cost.
                 </p>
               </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 32px", padding: "24px 0", borderBottom: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", flex: "1 1 260px", fontSize: "20px", lineHeight: "1.3" }}>The conversation is the job. Everything around it isn’t.</p>
-                <p style={{ margin: "0", flex: "1 1 380px", fontSize: "15px", lineHeight: "1.6", color: "var(--ink2)" }}>
+              <div className="cs-row">
+                <p className="cs-row-lead">The conversation is the job. Everything around it isn’t.</p>
+                <p className="cs-row-text">
                   Repeated voicemails, channel-hopping and memory-based logging are machine work being done by a skilled person.
                 </p>
               </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 32px", padding: "24px 0", borderBottom: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", flex: "1 1 260px", fontSize: "20px", lineHeight: "1.3" }}>Compliance can’t be bolted on later.</p>
-                <p style={{ margin: "0", flex: "1 1 380px", fontSize: "15px", lineHeight: "1.6", color: "var(--ink2)" }}>
+              <div className="cs-row">
+                <p className="cs-row-lead">Compliance can’t be bolted on later.</p>
+                <p className="cs-row-text">
                   Undocumented consent isn’t a discipline problem — it’s what happens when nothing in the tool asks for it.
                 </p>
               </div>
@@ -458,30 +388,22 @@ export default function ConnxProcess() {
           <section className="case-section" id="reframe">
             <p className="eyebrow">08 · Reframing</p>
             <h2 className="section-title h2-sm">Four gaps, restated as design questions.</h2>
-            <div className="stack-sm" style={{ marginTop: "28px", display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "12px" }}>
-              <p style={{ margin: "0", padding: "22px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)", fontSize: "17px", lineHeight: "1.45" }}>
-                How might we surface candidate context during a live call, without making the recruiter navigate away?
-              </p>
-              <p style={{ margin: "0", padding: "22px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)", fontSize: "17px", lineHeight: "1.45" }}>
-                How might we make consent capture a natural, frictionless part of outreach?
-              </p>
-              <p style={{ margin: "0", padding: "22px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)", fontSize: "17px", lineHeight: "1.45" }}>
-                How might we give hiring managers self-service pipeline visibility, without more work for recruiters?
-              </p>
-              <p style={{ margin: "0", padding: "22px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)", fontSize: "17px", lineHeight: "1.45" }}>
-                How might we give leads real-time team performance, generated from recruiter activity?
-              </p>
-            </div>
-            <div className="stack-sm" style={{ marginTop: "24px", display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "12px" }}>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--ink)", color: "var(--bg)" }}>
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--band-muted2)" }}>Problem</p>
-                <p style={{ margin: "10px 0 0", fontSize: "17px", lineHeight: "1.5" }}>
+            <CaseGrid cols={2}>
+              <CaseCol title="How might we surface candidate context during a live call, without making the recruiter navigate away?" />
+              <CaseCol title="How might we make consent capture a natural, frictionless part of outreach?" />
+              <CaseCol title="How might we give hiring managers self-service pipeline visibility, without more work for recruiters?" />
+              <CaseCol title="How might we give leads real-time team performance, generated from recruiter activity?" />
+            </CaseGrid>
+            <div className="cs-callouts">
+              <div className="cs-callout">
+                <p className="cs-tag">Problem</p>
+                <p className="cs-callout-text">
                   Recruiters lose their day to the work around the conversation — switching tools, chasing consent nothing records, rebuilding outcomes from memory.
                 </p>
               </div>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--surface)", border: "2px solid var(--accent)" }}>
-                <p className="tag-accent">Hypothesis</p>
-                <p style={{ margin: "10px 0 0", fontSize: "17px", lineHeight: "1.5" }}>
+              <div className="cs-callout is-accent">
+                <p className="cs-tag is-accent">Hypothesis</p>
+                <p className="cs-callout-text">
                   If context, consent and disposition live in one layer, the recruiter stops assembling a workflow by hand — and compliance becomes a by-product of doing the job.
                 </p>
               </div>
@@ -494,36 +416,20 @@ export default function ConnxProcess() {
             <p className="body-lead">
               The reasons for rejecting three routes are what justify the one I chose.
             </p>
-            <div className="stack-sm" style={{ marginTop: "28px", display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "12px" }}>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--rejected)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p className="tag-strong">Route A · Rejected</p>
-                <p style={{ margin: "0", fontSize: "21px", lineHeight: "1.25", color: "var(--ink2)", textDecoration: "line-through" }}>Improve Connect screen by screen</p>
-                <p className="body-sm">
-                  The problem is structural, not cosmetic. Six months making the symptoms look tidier.
-                </p>
-              </div>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--rejected)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p className="tag-strong">Route B · Rejected</p>
-                <p style={{ margin: "0", fontSize: "21px", lineHeight: "1.25", color: "var(--ink2)", textDecoration: "line-through" }}>A separate point-tool for each gap</p>
-                <p className="body-sm">
-                  Adds to the four-to-five-tools problem. Solving fragmentation with more fragmentation.
-                </p>
-              </div>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--rejected)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p className="tag-strong">Route C · Rejected</p>
-                <p style={{ margin: "0", fontSize: "21px", lineHeight: "1.25", color: "var(--ink2)", textDecoration: "line-through" }}>A thin layer on top of the ATS</p>
-                <p className="body-sm">
-                  Limited to what the ATS permits, and unable to own the communication experience — the thing that needed owning.
-                </p>
-              </div>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--surface)", border: "2px solid var(--accent)", display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p className="tag-accent">Route D · Chosen</p>
-                <p style={{ margin: "0", fontSize: "21px", lineHeight: "1.25" }}>One unified communication platform</p>
-                <p className="body-sm">
-                  The communication work had no home, so build the home. It sits between the ATS and the day, and leaves the system of record where it is.
-                </p>
-              </div>
-            </div>
+            <CaseGrid cols={2} className="cs-options">
+              <OptionCard label="Route A" status="rejected" title="Improve Connect screen by screen">
+                The problem is structural, not cosmetic. Six months making the symptoms look tidier.
+              </OptionCard>
+              <OptionCard label="Route B" status="rejected" title="A separate point-tool for each gap">
+                Adds to the four-to-five-tools problem. Solving fragmentation with more fragmentation.
+              </OptionCard>
+              <OptionCard label="Route C" status="rejected" title="A thin layer on top of the ATS">
+                Limited to what the ATS permits, and unable to own the communication experience — the thing that needed owning.
+              </OptionCard>
+              <OptionCard label="Route D" status="chosen" title="One unified communication platform">
+                The communication work had no home, so build the home. It sits between the ATS and the day, and leaves the system of record where it is.
+              </OptionCard>
+            </CaseGrid>
           </section>
           {/* 10 TRADE-OFFS */}
           <section className="case-section" id="tradeoffs">
@@ -630,32 +536,14 @@ export default function ConnxProcess() {
               </figure>
             </div>
             <p style={{ margin: "48px 0 14px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink3)" }}>Six modules — and which came from research</p>
-            <div className="stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px" }}>
-              <div className="card-sm">
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--accent)" }}>RESEARCH-DRIVEN</p>
-                <p style={{ margin: "8px 0 0", fontSize: "17px" }}>Recruiter Dashboard</p>
-              </div>
-              <div className="card-sm">
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--accent)" }}>RESEARCH-DRIVEN</p>
-                <p style={{ margin: "8px 0 0", fontSize: "17px" }}>Consent Management</p>
-              </div>
-              <div className="card-sm">
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--accent)" }}>RESEARCH-DRIVEN</p>
-                <p style={{ margin: "8px 0 0", fontSize: "17px" }}>Auto Dialer + Active-Call View</p>
-              </div>
-              <div className="card-sm">
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--accent)" }}>RESEARCH-DRIVEN · IN PROGRESS</p>
-                <p style={{ margin: "8px 0 0", fontSize: "17px" }}>{"Hiring Manager & Lead views"}</p>
-              </div>
-              <div style={{ padding: "20px", borderRadius: "12px", background: "var(--rejected)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--ink2)" }}>COMPLETENESS</p>
-                <p style={{ margin: "8px 0 0", fontSize: "17px" }}>Bulk communication</p>
-              </div>
-              <div style={{ padding: "20px", borderRadius: "12px", background: "var(--rejected)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "11px", color: "var(--ink2)" }}>COMPLETENESS</p>
-                <p style={{ margin: "8px 0 0", fontSize: "17px" }}>Integrations</p>
-              </div>
-            </div>
+            <CaseGrid cols={3} style={{ marginTop: "0", rowGap: "28px" }}>
+              <CaseCol tag="RESEARCH-DRIVEN" accentTag title="Recruiter Dashboard" />
+              <CaseCol tag="RESEARCH-DRIVEN" accentTag title="Consent Management" />
+              <CaseCol tag="RESEARCH-DRIVEN" accentTag title="Auto Dialer + Active-Call View" />
+              <CaseCol tag="RESEARCH-DRIVEN · IN PROGRESS" accentTag title="Hiring Manager & Lead views" />
+              <CaseCol tag="COMPLETENESS" title="Bulk communication" />
+              <CaseCol tag="COMPLETENESS" title="Integrations" />
+            </CaseGrid>
             <p style={{ margin: "56px 0 14px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink3)" }}>More from the prototype</p>
             <div className="stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "24px 16px" }}>
               <figure style={{ margin: "0" }}>
@@ -690,72 +578,33 @@ export default function ConnxProcess() {
           <section className="case-section" id="flows">
             <p className="eyebrow">12 · Task flows</p>
             <h2 className="section-title h2-sm">The three paths the prototype had to prove.</h2>
-            <div className="stack-sm" style={{ marginTop: "28px", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px" }}>
-              <div style={{ padding: "22px", borderRadius: "14px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontSize: "18px", lineHeight: "1.3" }}>Login to disposition</p>
-                <ol style={{ margin: "14px 0 0", paddingLeft: "20px", fontSize: "14px", lineHeight: "1.7", color: "var(--ink2)" }}>
-                  <li>Dashboard: the action plan</li>
-                  <li>Auto Dialer queue</li>
-                  <li>Active-Call View</li>
-                  <li>One-tap disposition</li>
-                  <li>Back to the dashboard</li>
-                </ol>
-              </div>
-              <div style={{ padding: "22px", borderRadius: "14px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontSize: "18px", lineHeight: "1.3" }}>Capturing consent</p>
-                <ol style={{ margin: "14px 0 0", paddingLeft: "20px", fontSize: "14px", lineHeight: "1.7", color: "var(--ink2)" }}>
-                  <li>Send a request in one click</li>
-                  <li>Time, channel and scope recorded</li>
-                  <li>Record attached to candidate</li>
-                  <li>The gate opens; the call connects</li>
-                </ol>
-              </div>
-              <div style={{ padding: "22px", borderRadius: "14px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p style={{ margin: "0", fontSize: "18px", lineHeight: "1.3" }}>Working the queue</p>
-                <ol style={{ margin: "14px 0 0", paddingLeft: "20px", fontSize: "14px", lineHeight: "1.7", color: "var(--ink2)" }}>
-                  <li>Queue built from the pipeline</li>
-                  <li>Consent checked per candidate</li>
-                  <li>Dials in sequence</li>
-                  <li>Context opens on connect</li>
-                  <li>Outcome in one tap</li>
-                </ol>
-              </div>
-            </div>
+            <CaseGrid cols={3}>
+              <Flow title="Login to disposition" steps={["Dashboard: the action plan", "Auto Dialer queue", "Active-Call View", "One-tap disposition", "Back to the dashboard"]} />
+              <Flow title="Capturing consent" steps={["Send a request in one click", "Time, channel and scope recorded", "Record attached to candidate", "The gate opens; the call connects"]} />
+              <Flow title="Working the queue" steps={["Queue built from the pipeline", "Consent checked per candidate", "Dials in sequence", "Context opens on connect", "Outcome in one tap"]} />
+            </CaseGrid>
           </section>
           {/* 14 OUTCOME */}
           <section className="case-section" id="outcome">
             <p className="eyebrow">13 · Outcome</p>
             <h2 className="section-title h2-sm">What exists, and what it’s designed to do.</h2>
-            <div className="stack-sm" style={{ marginTop: "28px", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px" }}>
-              <div className="card">
-                <p className="stat">4 → 4</p>
-                <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>gaps, each answered by one research-driven module</p>
-              </div>
-              <div className="card">
-                <p className="stat">2 live</p>
-                <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>Connect features shipped: Call History and Call Agent</p>
-              </div>
-              <div className="card">
-                <p className="stat">1</p>
-                <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>full interactive prototype of the recruiter core</p>
-              </div>
-            </div>
-            <div style={{ marginTop: "12px", padding: "24px", borderRadius: "14px", border: "1px dashed var(--line3)", background: "var(--surface)" }}>
-              <p className="tag-strong">Design targets — not measured results</p>
-              <p style={{ margin: "10px 0 0", fontSize: "18px", lineHeight: "1.5" }}>
+            <CaseGrid cols={3}>
+              <Stat value="4 → 4" note="gaps, each answered by one research-driven module" />
+              <Stat value="2 live" note="Connect features shipped: Call History and Call Agent" />
+              <Stat value="1" note="full interactive prototype of the recruiter core" />
+            </CaseGrid>
+            <div className="cs-callout" style={{ marginTop: "40px" }}>
+              <p className="cs-tag">Design targets — not measured results</p>
+              <p className="cs-callout-text">
                 3× more candidates screened · under 10 minutes to first contact · zero unlogged consent events
               </p>
             </div>
-            <p style={{ margin: "40px 0 14px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink3)" }}>Still open</p>
-            <ol style={{ margin: "0", padding: "0", listStyle: "none", borderTop: "1px solid var(--line)" }}>
-              <li style={{ padding: "14px 0", borderBottom: "1px solid var(--line)", fontSize: "16px", lineHeight: "1.5" }}>Validate 50/30/20 with session recordings and A/B testing</li>
-              <li style={{ padding: "14px 0", borderBottom: "1px solid var(--line)", fontSize: "16px", lineHeight: "1.5" }}>
-                Finish the Hiring Manager view — status, screening summaries, advance / hold / archive
-              </li>
-              <li style={{ padding: "14px 0", borderBottom: "1px solid var(--line)", fontSize: "16px", lineHeight: "1.5" }}>
-                Finish the Lead view — leaderboard, goals vs actuals, exportable reports
-              </li>
-              <li style={{ padding: "14px 0", borderBottom: "1px solid var(--line)", fontSize: "16px", lineHeight: "1.5" }}>Extend into QM verification and client hand-off</li>
+            <p style={{ margin: "56px 0 16px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink3)" }}>Still open</p>
+            <ol className="cs-list">
+              <li>Validate 50/30/20 with session recordings and A/B testing</li>
+              <li>Finish the Hiring Manager view — status, screening summaries, advance / hold / archive</li>
+              <li>Finish the Lead view — leaderboard, goals vs actuals, exportable reports</li>
+              <li>Extend into QM verification and client hand-off</li>
             </ol>
           </section>
           {/* 15 REFLECTION */}

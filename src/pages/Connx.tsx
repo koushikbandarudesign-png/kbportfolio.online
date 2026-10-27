@@ -1,3 +1,5 @@
+import { CaseCol, CaseGrid, Stat } from '../components/case/CaseGrid'
+import { OptionCard } from '../components/case/OptionCard'
 import { HashLink } from '../components/HashLink'
 import { Shot } from '../components/Shot'
 import { useLensView } from '../context/SiteContext'
@@ -93,7 +95,7 @@ export default function Connx() {
         <Shot className="shot" name="dashboard" alt="CONNX recruiter dashboard: today’s action plan, follow-ups and goals" loading="lazy" decoding="async" />
       </section>
       {/* BODY: side nav + content */}
-      <div className="gutter wrap" style={{ maxWidth: "1240px", margin: "0 auto", padding: "88px 32px 0", display: "flex", flexWrap: "wrap", gap: "48px 80px", alignItems: "flex-start", height: "3069px" }}>
+      <div className="gutter wrap" style={{ maxWidth: "1240px", margin: "0 auto", padding: "88px 32px 0", display: "flex", flexWrap: "wrap", gap: "48px 80px", alignItems: "flex-start" }}>
         <nav aria-label="Case study sections" style={{ flex: "1 1 180px", maxWidth: "220px" }}>
           <p style={{ margin: "0 0 12px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink3)" }}>On this page</p>
           <ol style={{ margin: "0", padding: "0", listStyle: "none", display: "flex", flexDirection: "column", borderLeft: "1px solid var(--line)" }}>
@@ -124,24 +126,12 @@ export default function Connx() {
             <p className="body-lead">
               Leoforce is an AI-powered recruiting platform. Its internal tool, Connect, solved one narrow function and missed the reality around every call. Four gaps kept appearing — and they weren’t bugs. They were symptoms of one missing layer.
             </p>
-            <div className="stack-sm" style={{ marginTop: "32px", display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "12px" }}>
-              <div className="card-sm">
-                <p style={{ margin: "0", fontSize: "18px" }}>No context</p>
-                <p style={{ margin: "8px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>No candidate info at the point of a call.</p>
-              </div>
-              <div className="card-sm">
-                <p style={{ margin: "0", fontSize: "18px" }}>No consent</p>
-                <p style={{ margin: "8px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>Verbal, undocumented, no scope.</p>
-              </div>
-              <div className="card-sm">
-                <p style={{ margin: "0", fontSize: "18px" }}>No continuity</p>
-                <p style={{ margin: "8px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>Outcomes logged later, from memory.</p>
-              </div>
-              <div className="card-sm">
-                <p style={{ margin: "0", fontSize: "18px" }}>No clarity</p>
-                <p style={{ margin: "8px 0 0", fontSize: "14px", lineHeight: "1.5", color: "var(--ink2)" }}>Opened into chat, not priorities.</p>
-              </div>
-            </div>
+            <CaseGrid cols={4}>
+              <CaseCol title="No context" text="No candidate info at the point of a call." />
+              <CaseCol title="No consent" text="Verbal, undocumented, no scope." />
+              <CaseCol title="No continuity" text="Outcomes logged later, from memory." />
+              <CaseCol title="No clarity" text="Opened into chat, not priorities." />
+            </CaseGrid>
           </section>
           {/* RESEARCH */}
           <section id="research" style={{ marginTop: "96px" }}>
@@ -154,48 +144,27 @@ export default function Connx() {
                 </p>
               </>
             )}
-            <div className="stack-sm" style={{ marginTop: "32px", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px" }}>
-              <div style={{ padding: "28px 24px", borderRadius: "12px", background: "var(--ink)", color: "var(--bg)" }}>
-                <p className="stat-xl fs-48">11 of 15</p>
-                <p style={{ margin: "10px 0 0", fontSize: "15px", lineHeight: "1.5", color: "var(--band-muted)" }}>calls went to voicemail in a typical session</p>
-              </div>
-              <div style={{ padding: "28px 24px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p className="stat-xl fs-48">6–7</p>
-                <p style={{ margin: "10px 0 0", fontSize: "15px", lineHeight: "1.5", color: "var(--ink2)" }}>tools used in a single recruiting session</p>
-              </div>
-              <div style={{ padding: "28px 24px", borderRadius: "12px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p className="stat-xl fs-48">0</p>
-                <p style={{ margin: "10px 0 0", fontSize: "15px", lineHeight: "1.5", color: "var(--ink2)" }}>records of when consent was given, or for what</p>
-              </div>
-            </div>
+            <CaseGrid cols={3}>
+              <Stat lead value="11 of 15" note="calls went to voicemail in a typical session" />
+              <Stat value="6–7" note="tools used in a single recruiting session" />
+              <Stat value="0" note="records of when consent was given, or for what" />
+            </CaseGrid>
           </section>
           {/* DECISION CARD */}
           <section id="decision" style={{ marginTop: "96px" }}>
             <p className="eyebrow">03 · The decision</p>
             <h2 className="section-title h2-sm">Fix the dialer, add more tools, or build the missing home?</h2>
-            <div className="stack-sm" style={{ marginTop: "32px", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px" }}>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--rejected)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: "14px" }}>
-                <p className="tag-strong">Option A · Rejected</p>
-                <p style={{ margin: "0", fontSize: "22px", lineHeight: "1.25", color: "var(--ink2)", textDecoration: "line-through" }}>Redesign Connect, screen by screen</p>
-                <p className="body-sm">
-                  Tidier symptoms, same problem. The cost was the switching between tools, not any one screen.
-                </p>
-              </div>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--rejected)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: "14px" }}>
-                <p className="tag-strong">Option B · Rejected</p>
-                <p style={{ margin: "0", fontSize: "22px", lineHeight: "1.25", color: "var(--ink2)", textDecoration: "line-through" }}>A separate tool for each gap</p>
-                <p className="body-sm">
-                  Solving fragmentation with more fragmentation — the exact problem the research had just documented.
-                </p>
-              </div>
-              <div style={{ padding: "24px", borderRadius: "14px", background: "var(--surface)", border: "2px solid var(--accent)", display: "flex", flexDirection: "column", gap: "14px" }}>
-                <p className="tag-accent">Option C · Chosen</p>
-                <p style={{ margin: "0", fontSize: "22px", lineHeight: "1.25", color: "var(--ink)" }}>One platform between the ATS and the day</p>
-                <p className="body-sm">
-                  The recruiter’s communication work had no home, so build the home — and leave the ATS as the system of record.
-                </p>
-              </div>
-            </div>
+            <CaseGrid cols={3} className="cs-options">
+              <OptionCard label="Option A" status="rejected" title="Redesign Connect, screen by screen">
+                Tidier symptoms, same problem. The cost was the switching between tools, not any one screen.
+              </OptionCard>
+              <OptionCard label="Option B" status="rejected" title="A separate tool for each gap">
+                Solving fragmentation with more fragmentation — the exact problem the research had just documented.
+              </OptionCard>
+              <OptionCard label="Option C" status="chosen" title="One platform between the ATS and the day">
+                The recruiter’s communication work had no home, so build the home — and leave the ATS as the system of record.
+              </OptionCard>
+            </CaseGrid>
           </section>
           {/* SOLUTION */}
           <section id="solution" style={{ marginTop: "96px" }}>
@@ -224,20 +193,10 @@ export default function Connx() {
           <section id="outcome" style={{ marginTop: "96px", paddingBottom: "120px" }}>
             <p className="eyebrow">05 · Outcome</p>
             <h2 className="section-title h2-sm">Prototyped end to end. Honest about what isn’t done.</h2>
-            <div className="stack-sm" style={{ marginTop: "32px", display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "12px" }}>
-              <div style={{ padding: "28px", borderRadius: "14px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p className="tag-accent">Done</p>
-                <p style={{ margin: "12px 0 0", fontSize: "20px", lineHeight: "1.35" }}>Recruiter core designed and prototyped end to end.</p>
-                <p style={{ margin: "12px 0 0", fontSize: "15px", lineHeight: "1.55", color: "var(--ink2)" }}>[What the Leoforce team said or decided after the review]</p>
-              </div>
-              <div style={{ padding: "28px", borderRadius: "14px", background: "var(--surface)", border: "1px solid var(--line)" }}>
-                <p className="tag">Next</p>
-                <p style={{ margin: "12px 0 0", fontSize: "20px", lineHeight: "1.35" }}>Validate the 50/30/20 call layout.</p>
-                <p style={{ margin: "12px 0 0", fontSize: "15px", lineHeight: "1.55", color: "var(--ink2)" }}>
-                  Session recordings and A/B testing, then the Hiring Manager and Recruitment Lead views.
-                </p>
-              </div>
-            </div>
+            <CaseGrid cols={2}>
+              <CaseCol tag="Done" accentTag title="Recruiter core designed and prototyped end to end." text="[What the Leoforce team said or decided after the review]" />
+              <CaseCol tag="Next" title="Validate the 50/30/20 call layout." text="Session recordings and A/B testing, then the Hiring Manager and Recruitment Lead views." />
+            </CaseGrid>
             <div style={{ marginTop: "64px", paddingTop: "32px", borderTop: "1px solid var(--line)", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "16px" }}>
               <p style={{ margin: "0", fontSize: "22px" }}>The lesson: understand before you design.</p>
               <HashLink to="telmy" style={{ display: "inline-flex", alignItems: "center", minHeight: "48px", padding: "0 24px", borderRadius: "999px", background: "var(--ink)", color: "var(--on-ink)", textDecoration: "none", fontSize: "16px" }}>Next: Telmy →</HashLink>

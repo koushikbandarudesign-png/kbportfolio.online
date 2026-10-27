@@ -1,0 +1,86 @@
+/* Case-study section patterns: top-ruled columns instead of boxed cards. */
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cs-cols, 3), minmax(0, 1fr));
+  gap: 40px 48px;
+  margin-top: 36px;
+}
+.cs-col { border-top: 1px solid var(--line); padding-top: 24px; min-width: 0; }
+.cs-col.is-lead { border-top: 2px solid var(--ink); padding-top: 23px; }
+
+.cs-col-title { margin: 0; font-size: 20px; line-height: 1.3; }
+.cs-col-text { margin: 10px 0 0; font-size: 15px; line-height: 1.55; color: var(--ink2); }
+.cs-col-list { margin: 14px 0 0; padding-left: 20px; font-size: 15px; line-height: 1.6; color: var(--ink2); }
+.cs-col-list li + li { margin-top: 6px; }
+.cs-tag { margin: 0 0 10px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink3); }
+.cs-tag.is-accent { color: var(--accent); }
+
+/* Big numbers */
+.cs-stat { margin: 0; font-size: 56px; line-height: 1; letter-spacing: -0.04em; }
+.cs-stat-note { margin: 14px 0 0; font-size: 16px; line-height: 1.5; color: var(--ink2); }
+
+/* Option / route / concept cards */
+.cs-options { display: grid; grid-template-columns: repeat(var(--cs-cols, 3), minmax(0, 1fr)); gap: 12px; margin-top: 36px; }
+.cs-option { padding: 26px; border-radius: 4px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 14px; }
+.cs-option-head { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink2); }
+.cs-option-head.is-chosen { color: var(--accent); }
+.cs-badge { display: inline-flex; align-items: center; gap: 8px; padding: 4px 10px; border-radius: 999px; background: var(--placeholder); color: var(--ink2); }
+.cs-option-head.is-chosen .cs-badge { background: var(--accent); color: var(--on-ink); }
+.cs-option-title { margin: 0; font-size: 22px; line-height: 1.25; color: var(--ink); }
+.cs-option-title.is-struck { color: var(--ink2); text-decoration: line-through; }
+.cs-option-title.is-muted { color: var(--ink2); }
+.cs-option-text { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink2); }
+
+/* Dot-and-line timeline */
+.cs-timeline { margin: 36px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(var(--cs-cols, 3), minmax(0, 1fr)); gap: 24px 12px; }
+.cs-step { position: relative; padding-top: 34px; min-width: 0; }
+.cs-step::before { content: ""; position: absolute; left: 0; top: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--line3); }
+.cs-step::after { content: ""; position: absolute; left: 18px; right: 0; top: 4px; height: 2px; background: var(--line2); }
+.cs-step.is-current::before { background: var(--accent); }
+.cs-step.is-current::after { background: var(--accent); }
+.cs-step-label { margin: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.04em; color: var(--ink3); }
+.cs-step.is-current .cs-step-label { color: var(--accent); }
+.cs-step-title { margin: 10px 0 0; font-size: 17px; line-height: 1.35; }
+.cs-step.is-current .cs-step-title { font-weight: 600; }
+.cs-step-version { margin: 0; font-size: 40px; line-height: 1; letter-spacing: -0.03em; color: var(--ink3); }
+.cs-step.is-current .cs-step-version { color: var(--accent); }
+.cs-step-text { margin: 16px 0 0; font-size: 15px; line-height: 1.6; color: var(--ink2); max-width: 36ch; }
+
+/* Arrow chain: Insight → … → Solution */
+.cs-chain { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; font-size: 18px; }
+.cs-chain-arrow { color: var(--ink3); font-size: 15px; }
+.cs-chain-end { color: var(--accent); font-weight: 600; }
+
+/* Inline list of the evaluation axes */
+.cs-axes { margin: 32px 0 0; padding-top: 22px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 0; font-size: 17px; color: var(--ink2); list-style: none; padding-left: 0; }
+.cs-axes-label { margin-right: 14px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink3); }
+.cs-axes li + li::before { content: "·"; margin: 0 9px; color: var(--ink3); }
+
+/* Statement rows: insight on the left, explanation on the right */
+.cs-rows { margin: 0; border-bottom: 1px solid var(--line); }
+.cs-row { display: grid; grid-template-columns: minmax(0, 9fr) minmax(0, 11fr); gap: 10px 40px; padding: 26px 0; border-top: 1px solid var(--line); }
+.cs-row-lead { margin: 0; font-size: 20px; line-height: 1.3; }
+.cs-row-text { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink2); }
+
+/* Plain list rows (still open, …) */
+.cs-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.cs-list li { padding: 18px 0; border-bottom: 1px solid var(--line); font-size: 17px; line-height: 1.45; }
+
+/* Left-ruled callouts: problem / hypothesis / design targets */
+.cs-callouts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 48px; margin-top: 36px; }
+.cs-callout { margin: 0; padding: 2px 0 2px 24px; border-left: 3px solid var(--line3); }
+.cs-callout.is-accent { border-left-color: var(--accent); }
+.cs-callout-text { margin: 0; font-size: 18px; line-height: 1.5; color: var(--ink); }
+
+@media (max-width: 1000px) {
+  .cs-grid[data-cols="4"], .cs-timeline[data-cols="6"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cs-timeline[data-cols="6"] .cs-step:nth-child(2n)::after { display: none; }
+}
+@media (max-width: 760px) {
+  .cs-grid, .cs-options, .cs-callouts { grid-template-columns: 1fr !important; }
+  .cs-timeline { grid-template-columns: 1fr !important; }
+  .cs-step::after { display: none; }
+  .cs-row { grid-template-columns: 1fr; }
+  .cs-stat { font-size: 44px; }
+}
