@@ -1,4 +1,4 @@
-/* ---------- Colour tokens (Paper by default, Graphite for dark OS) ---------- */
+/* ---------- Colour tokens (Graphite until the visitor picks a scheme; Paper is data-theme="light") ---------- */
 :root {
   --bg: #F4F3EF; --surface: #FFFFFF; --ink: #111110; --on-ink: #FFFFFF; --ink2: #4A4945; --ink3: #6B6A64; --accent: #2E4BF0;
   --placeholder: #E6E4DD; --rejected: #ECEAE4; --bar: #C9C7BF; --highlight: #F0F2FE; --line: #DEDCD5; --line2: #C9C7BF; --line3: #8C8A83;
@@ -8,13 +8,7 @@
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --bg: #121211; --surface: #1C1C1A; --ink: #F1F0EC; --on-ink: #121211; --ink2: #C4C2BB; --ink3: #A3A19A; --accent: #8FA0FF;
-    --placeholder: #2A2A27; --rejected: #232321; --bar: #45443F; --highlight: #1B2240; --line: #2E2D2A; --line2: #45443F; --line3: #6B6A64;
-    --band-muted: #45443F; --band-muted2: #5F5E58; --band-accent: #2E4BF0; --band-line: #C9C7BF; color-scheme: dark;
-  }
-}
+:root:not([data-theme]),
 :root[data-theme="dark"] {
   --bg: #121211; --surface: #1C1C1A; --ink: #F1F0EC; --on-ink: #121211; --ink2: #C4C2BB; --ink3: #A3A19A; --accent: #8FA0FF;
   --placeholder: #2A2A27; --rejected: #232321; --bar: #45443F; --highlight: #1B2240; --line: #2E2D2A; --line2: #45443F; --line3: #6B6A64;

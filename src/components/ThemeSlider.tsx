@@ -18,9 +18,8 @@ function savedValue(): number | null {
   return stopValue(document.documentElement.getAttribute('data-theme'))
 }
 
-function systemValue(): number {
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 1 : 0
-}
+/** Graphite, the last stop: where the slider starts before the visitor picks a scheme. */
+const DEFAULT_VALUE = 1
 
 function applyTokens(t: number): void {
   const root = document.documentElement
@@ -31,7 +30,7 @@ function applyTokens(t: number): void {
 }
 
 export function ThemeSlider() {
-  // null until the visitor picks a scheme, so the CSS follows the OS setting.
+  // null until the visitor picks a scheme, so the CSS default (Graphite) applies.
   const [value, setValue] = useState<number | null>(savedValue)
   const [open, setOpen] = useState(false)
   const [labelVisible, setLabelVisible] = useState(false)
@@ -91,7 +90,7 @@ export function ThemeSlider() {
   }, [open])
 
   function toggle() {
-    if (!open && value === null) setValue(systemValue())
+    if (!open && value === null) setValue(DEFAULT_VALUE)
     setLabelVisible(!open)
     setOpen(!open)
   }
@@ -120,7 +119,7 @@ export function ThemeSlider() {
   }
 
   function onThumbKey(e: KeyboardEvent<HTMLDivElement>) {
-    let v = value ?? systemValue()
+    let v = value ?? DEFAULT_VALUE
     if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') v -= STEP
     else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') v += STEP
     else if (e.key === 'PageUp') v = (Math.ceil(v / BIG_STEP - 0.001) - 1) * BIG_STEP
