@@ -6,6 +6,29 @@ import { ResumeLink } from '../components/ResumeLink'
 import { Shot } from '../components/Shot'
 import { useLensView } from '../context/SiteContext'
 
+interface TimelineProps {
+  heading: string
+  /** [dates, role · place] */
+  rows: [string, string][]
+}
+
+/** A labelled list of dated entries in the About section (Experience, Education). */
+function Timeline({ heading, rows }: TimelineProps) {
+  return (
+    <div style={{ marginTop: "48px" }}>
+      <p className="eyebrow" style={{ marginBottom: "14px" }}>{heading}</p>
+      <ol style={{ margin: "0", padding: "0", listStyle: "none", borderTop: "1px solid var(--line)" }}>
+        {rows.map(([dates, entry]) => (
+          <li key={entry} style={{ display: "flex", flexWrap: "wrap", gap: "8px 24px", padding: "18px 0", borderBottom: "1px solid var(--line)" }}>
+            <span style={{ flex: "0 0 180px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "13px", color: "var(--ink3)" }}>{dates}</span>
+            <span style={{ flex: "1 1 260px", fontSize: "17px" }}>{entry}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  )
+}
+
 export default function Home() {
   const v = useLensView()
   return (
@@ -343,30 +366,15 @@ export default function Home() {
             <p style={{ margin: "20px 0 0", fontSize: "18px", lineHeight: "1.6", color: "var(--ink2)" }}>
               Today I design products at Leoforce, an AI-powered recruiting platform, where I care most about the part before Figma: arguing about what is actually being decided.
             </p>
-            <ol style={{ margin: "48px 0 0", padding: "0", listStyle: "none", borderTop: "1px solid var(--line)" }}>
-              <li style={{ display: "flex", flexWrap: "wrap", gap: "8px 24px", padding: "18px 0", borderBottom: "1px solid var(--line)" }}>
-                <span style={{ flex: "0 0 180px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "13px", color: "var(--ink3)" }}>Jul 2026 — Now</span>
-                <span style={{ flex: "1 1 260px", fontSize: "17px" }}>UI/UX Designer, Leoforce</span>
-              </li>
-              <li style={{ display: "flex", flexWrap: "wrap", gap: "8px 24px", padding: "18px 0", borderBottom: "1px solid var(--line)" }}>
-                <span style={{ flex: "0 0 180px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "13px", color: "var(--ink3)" }}>Nov 2025 — Jul 2026</span>
-                <span style={{ flex: "1 1 260px", fontSize: "17px" }}>UI/UX Design Intern, Leoforce — sole designer on CONNX</span>
-              </li>
-              <li style={{ display: "flex", flexWrap: "wrap", gap: "8px 24px", padding: "18px 0", borderBottom: "1px solid var(--line)" }}>
-                <span style={{ flex: "0 0 180px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "13px", color: "var(--ink3)" }}>May — Jun 2025</span>
-                <span style={{ flex: "1 1 260px", fontSize: "17px" }}>
-                  Product Design Intern, PractiSc — educational products for kids
-                </span>
-              </li>
-              <li style={{ display: "flex", flexWrap: "wrap", gap: "8px 24px", padding: "18px 0", borderBottom: "1px solid var(--line)" }}>
-                <span style={{ flex: "0 0 180px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "13px", color: "var(--ink3)" }}>Aug — Oct 2024</span>
-                <span style={{ flex: "1 1 260px", fontSize: "17px" }}>Project lead, Telmy — six-person studio team</span>
-              </li>
-              <li style={{ display: "flex", flexWrap: "wrap", gap: "8px 24px", padding: "18px 0", borderBottom: "1px solid var(--line)" }}>
-                <span style={{ flex: "0 0 180px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "13px", color: "var(--ink3)" }}>2026</span>
-                <span style={{ flex: "1 1 260px", fontSize: "17px" }}>B.Des (Hons), Industrial Design, Woxsen University</span>
-              </li>
-            </ol>
+            <Timeline
+              heading="Experience"
+              rows={[
+                ["Jul 2026 — Now", "UI/UX Designer · Leoforce"],
+                ["Nov 2025 — Jul 2026", "UI/UX Design Intern · Leoforce"],
+                ["May — Jun 2025", "Product Design Intern · PractiSc Learning Innovations"],
+              ]}
+            />
+            <Timeline heading="Education" rows={[["2022 — 2026", "B.Des (Hons), Industrial Design · Woxsen University"]]} />
           </div>
         </div>
       </section>
