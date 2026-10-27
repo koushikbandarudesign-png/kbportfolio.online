@@ -96,7 +96,8 @@
 .cs-map-out { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink3); white-space: nowrap; }
 
 @media (max-width: 1000px) {
-  .cs-grid[data-cols="4"], .cs-timeline[data-cols="6"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cs-grid[data-cols="4"], .cs-timeline[data-cols="5"], .cs-timeline[data-cols="6"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cs-timeline[data-cols="5"] .cs-step:nth-child(2n)::after,
   .cs-timeline[data-cols="6"] .cs-step:nth-child(2n)::after { display: none; }
 }
 @media (max-width: 760px) {

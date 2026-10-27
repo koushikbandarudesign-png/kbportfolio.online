@@ -160,11 +160,10 @@ export default function ConnxProcess() {
             <PhaseTimeline
               steps={[
                 { label: "Weeks 1–4", title: "Orientation" },
-                { label: "Phase 2", title: "Connect features" },
-                { label: "Phase 3", title: "Shadowing and research" },
-                { label: "Phase 4", title: "Synthesis and reframing" },
-                { label: "Phase 5", title: "Direction and decision" },
-                { label: "Phase 6", title: "Design and prototype" },
+                { label: "Phase 2", title: "Shadowing and research" },
+                { label: "Phase 3", title: "Synthesis and reframing" },
+                { label: "Phase 4", title: "Direction and decision" },
+                { label: "Phase 5", title: "Design and prototype" },
               ]}
             />
             <p style={{ margin: "56px 0 16px", fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--ink3)" }}>The decision method, for every feature</p>
