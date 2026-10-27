@@ -4,6 +4,7 @@ import { HashLink } from '../components/HashLink'
 import { PromoVideo } from '../components/PromoVideo'
 import { ResumeLink } from '../components/ResumeLink'
 import { Shot } from '../components/Shot'
+import { ToViewSwitch } from '../components/ToViewSwitch'
 import { useLensView } from '../context/SiteContext'
 
 interface TimelineProps {
@@ -144,22 +145,18 @@ export default function Home() {
             {v.isRec && (
               <>
                 <p style={{ margin: "0", maxWidth: "380px", fontSize: "16px", lineHeight: "1.5", color: "var(--ink2)" }}>
-                  Role, timeline and the key finding for each project.
+                  Role, timeline and the key finding for each project. Switch to Designer view for the decisions behind them.
                   {" "}
-                  <button type="button" className="inline-switch" onClick={v.setDes}>Switch to Designer view →</button>
-                  {" "}
-                  for the decisions behind them.
+                  <ToViewSwitch />
                 </p>
               </>
             )}
             {v.isDes && (
               <>
                 <p style={{ margin: "0", maxWidth: "380px", fontSize: "16px", lineHeight: "1.5", color: "var(--ink2)" }}>
-                  Each project opens with the decision that was actually hard, and the options I rejected on the way.
+                  Each project opens with the decision that was actually hard, and the options I rejected on the way. Switch to Recruiter view for role, timeline and the key finding.
                   {" "}
-                  <button type="button" className="inline-switch" onClick={v.setRec}>Switch to Recruiter view →</button>
-                  {" "}
-                  for role, timeline and the key finding.
+                  <ToViewSwitch />
                 </p>
               </>
             )}
