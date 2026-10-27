@@ -371,7 +371,7 @@ export default function Home() {
               rows={[
                 ["Jul 2026 — Now", "UI/UX Designer · Leoforce"],
                 ["Nov 2025 — Jul 2026", "UI/UX Design Intern · Leoforce"],
-                ["May — Jun 2025", "Product Design Intern · PractiSc Learning Innovations"],
+                ["May 2025 — Jun 2025", "Product Design Intern · PractiSc Learning Innovations"],
               ]}
             />
             <Timeline heading="Education" rows={[["2022 — 2026", "B.Des (Hons), Industrial Design · Woxsen University"]]} />
