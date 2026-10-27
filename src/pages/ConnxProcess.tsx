@@ -123,7 +123,7 @@ export default function ConnxProcess() {
             <p className="eyebrow">01 · My role</p>
             <h2 className="section-title h2-sm">I proposed it, researched it, and designed it.</h2>
             <p className="body-lead">
-              The first four weeks were orientation, not design: knowledge transfer from the senior team and time with the live products, the users, and the technical and business constraints. I was then placed on Connect, Leoforce’s recruiter communication tool, where I designed live features including Call History and Call Agent.
+              The first four weeks were orientation, not design: knowledge transfer from the senior team and time with the live products, the users, and the technical and business constraints. I was then placed on Connect, Leoforce’s recruiter communication tool.
             </p>
             <p style={{ margin: "16px 0 0", fontSize: "18px", lineHeight: "1.65", color: "var(--ink2)", maxWidth: "62ch" }}>
               CONNX came out of that placement. Shadowing recruiters surfaced workflow gaps no screen-level fix would close, so I proposed a full revamp. The orientation is what made the proposal credible when I put it forward.
@@ -591,9 +591,8 @@ export default function ConnxProcess() {
           <section className="case-section" id="outcome">
             <p className="eyebrow">13 · Outcome</p>
             <h2 className="section-title h2-sm">What exists, and what it’s designed to do.</h2>
-            <CaseGrid cols={3}>
+            <CaseGrid cols={2}>
               <Stat value="4 → 4" note="gaps, each answered by one research-driven module" />
-              <Stat value="2 live" note="Connect features shipped: Call History and Call Agent" />
               <Stat value="1" note="full interactive prototype of the recruiter core" />
             </CaseGrid>
             <div className="cs-callout" style={{ marginTop: "40px" }}>
