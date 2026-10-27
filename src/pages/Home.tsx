@@ -156,6 +156,10 @@ export default function Home() {
               <>
                 <p style={{ margin: "0", maxWidth: "380px", fontSize: "16px", lineHeight: "1.5", color: "var(--ink2)" }}>
                   Each project opens with the decision that was actually hard, and the options I rejected on the way.
+                  {" "}
+                  <button type="button" className="inline-switch" onClick={v.setRec}>Switch to Recruiter view →</button>
+                  {" "}
+                  for role, timeline and the key finding.
                 </p>
               </>
             )}
