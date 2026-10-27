@@ -144,7 +144,11 @@ export default function Home() {
             {v.isRec && (
               <>
                 <p style={{ margin: "0", maxWidth: "380px", fontSize: "16px", lineHeight: "1.5", color: "var(--ink2)" }}>
-                  Role, timeline and the key finding for each project. Switch to Designer view for the decisions behind them.
+                  Role, timeline and the key finding for each project.
+                  {" "}
+                  <button type="button" className="inline-switch" onClick={v.setDes}>Switch to Designer view →</button>
+                  {" "}
+                  for the decisions behind them.
                 </p>
               </>
             )}
