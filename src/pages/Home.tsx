@@ -7,6 +7,9 @@ import { Shot } from '../components/Shot'
 import { ToViewSwitch } from '../components/ToViewSwitch'
 import { useLensView } from '../context/SiteContext'
 
+/** Hidden until the real quotes are in; set to true to bring the section and its nav link back. */
+const SHOW_REFERENCES = false
+
 interface TimelineProps {
   heading: string
   /** [dates, role · place] */
@@ -43,7 +46,7 @@ export default function Home() {
             <HashLink to="top" style={{ textDecoration: "none", color: "var(--ink2)" }}>Intro</HashLink>
             <HashLink to="work" style={{ textDecoration: "none", color: "var(--ink2)" }}>Work</HashLink>
             <HashLink to="principles" style={{ textDecoration: "none", color: "var(--ink2)" }}>Principles</HashLink>
-            <HashLink to="references" style={{ textDecoration: "none", color: "var(--ink2)" }}>References</HashLink>
+            {SHOW_REFERENCES && <HashLink to="references" style={{ textDecoration: "none", color: "var(--ink2)" }}>References</HashLink>}
             <HashLink to="about" style={{ textDecoration: "none", color: "var(--ink2)" }}>About</HashLink>
             <HashLink to="contact" style={{ textDecoration: "none", color: "var(--ink2)" }}>Contact</HashLink>
           </nav>
@@ -324,6 +327,7 @@ export default function Home() {
         </div>
       </section>
       {/* REFERENCES */}
+      {SHOW_REFERENCES && (
       <section id="references" style={{ borderBottom: "1px solid var(--line)" }}>
         <div className="gutter wrap" style={{ maxWidth: "1240px", margin: "0 auto", padding: "96px 32px" }}>
           <p className="eyebrow">References</p>
@@ -357,6 +361,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      )}
       {/* ABOUT */}
       <section id="about">
         <div className="gutter wrap" style={{ maxWidth: "1240px", margin: "0 auto", padding: "96px 32px", display: "flex", flexWrap: "wrap", gap: "64px" }}>
